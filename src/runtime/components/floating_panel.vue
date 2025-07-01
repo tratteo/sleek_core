@@ -29,7 +29,7 @@
 import { autoPlacement, autoUpdate, offset, shift, useFloating, type Placement } from "@floating-ui/vue";
 import { breakpointsTailwind, onClickOutside, useBreakpoints } from "@vueuse/core";
 import { computed, onMounted, onUnmounted, ref, watch } from "vue";
-import type { ModalElement } from "./modal.vue";
+import type { ModalElement } from "../lib/types";
 
 const bp = useBreakpoints(breakpointsTailwind);
 const open = ref(false);
