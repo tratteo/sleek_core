@@ -9,7 +9,6 @@
 
 <script setup>
 import { computed, useMounted } from "#imports";
-import * as colors from "tailwindcss/colors";
 import { daisyUiColorHex, daisyUiColorRgba, hexToRgba } from "../lib/colors";
 const props = defineProps({
   type: { type: String, required: false, default: "info" },
@@ -53,13 +52,13 @@ const getStyle = computed(() => {
         color: props.outlined ? daisyUiColorHex("--bc") : cContent
       };
     case "tip":
-      var color = colors.purple[400];
+      var color = "#a684ff";
       var cContent = daisyUiColorHex("--bc");
       return {
         "--c": props.outlined ? color : cContent,
         "border-color": color,
         "border-width": "1px",
-        "background-color": props.outlined ? hexToRgba(colors.purple[400], 0.05) : color,
+        "background-color": props.outlined ? hexToRgba(color, 0.05) : color,
         color: props.outlined ? daisyUiColorHex("--bc") : cContent
       };
     case "info":
