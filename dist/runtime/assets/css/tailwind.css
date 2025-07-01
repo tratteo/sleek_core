@@ -1,0 +1,1 @@
+@import url("./markdown.css");@import url("./widget.css");@import url("./typography.css");@import url("./modifiers.css");@tailwind components;@tailwind base;@tailwind utilities;*{box-sizing:border-box!important;scroll-behavior:smooth!important;scrollbar-width:none}

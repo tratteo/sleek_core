@@ -1,0 +1,15 @@
+import type { Duration } from "dayjs/plugin/duration";
+export declare function getDomainName(url: string): string | null;
+export declare function tryParseInt(s: string | undefined | null): number | undefined;
+export declare function tryParse(s: string | undefined | null): number | undefined;
+export declare function isNullOrEmpty(s: string | undefined | null): boolean;
+export declare function readablePrice(unitAmount: number | undefined | null): string | undefined;
+export declare function wordCapitalize(s: string | undefined | null): string | undefined | null;
+export declare function firstWord(s: string | undefined | null, cap?: boolean): string | undefined | null;
+export declare function capitalize<T extends string | undefined | null>(s: T): T;
+export declare function toShortString(v: number | undefined): string | undefined;
+export declare function minutesToReadableTimespan(mins: number): string;
+export declare function toUriSafeString(input: string | undefined | null): string | undefined;
+export declare function countryCodeToFlagEmoji(countryCode: string | undefined | null): string;
+export declare function durationAsWorkingHours(d: Duration): string;
+export declare function shortUid(seed: any, length?: number): string;

@@ -7,7 +7,7 @@ export interface ModuleOptions {}
 
 export default defineNuxtModule<ModuleOptions>({
     meta: {
-        name: "sleek",
+        name: "@sleek/core",
         configKey: "sleek",
         compatibility: {
             nuxt: ">=3.0.0",
