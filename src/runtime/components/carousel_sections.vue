@@ -56,16 +56,6 @@ import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
 import { motion } from "motion-v";
 import { onMounted, ref } from "vue";
 
-export interface CarouselSection {
-    title: string;
-    icon: string;
-    color: string;
-    duration: number;
-    type: "video" | "image" | "component";
-    description: string;
-    asset: string;
-}
-
 const bp = useBreakpoints(breakpointsTailwind);
 const props = defineProps<{ sections: CarouselSection[] }>();
 const selected = ref(0);

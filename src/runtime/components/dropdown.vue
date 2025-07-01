@@ -80,10 +80,8 @@ import { breakpointsTailwind, onClickOutside, useBreakpoints, useMounted, useMut
 import Fuse, { type IFuseOptions } from "fuse.js";
 import { computed, onMounted, ref, useSlots, watch } from "vue";
 import { isNullOrEmpty } from "../lib/string";
-import type { ModalElement } from "./modal.vue";
-export interface DropdownSearchOptions {
-    keys: string[];
-}
+import type { ModalElement } from "../lib/types";
+
 const bp = useBreakpoints(breakpointsTailwind);
 const mounted = useMounted();
 const rootEl = ref<HTMLElement>();

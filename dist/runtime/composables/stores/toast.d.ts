@@ -1,22 +1,11 @@
 import type { WithId } from "~/src/runtime/lib/decorators";
-export type ToastType = "error" | "warning" | "info" | "success";
-export interface ToastData {
-    type?: ToastType;
-    message: string;
-    dismissible?: boolean;
-    duration?: number;
-    persistent?: boolean;
-    action?: {
-        label: string;
-        handler: () => void;
-    };
-}
+import type { ToastData } from "../../lib/types.js";
 export declare const useToast: import("pinia").StoreDefinition<"toast", Pick<{
     add: (data: ToastData) => void;
     toasts: import("vue").Ref<{
         id: string;
         data: {
-            type?: ToastType | undefined;
+            type?: import("../../lib/types.js").ToastType | undefined;
             message: string;
             dismissible?: boolean | undefined;
             duration?: number | undefined;
@@ -29,7 +18,7 @@ export declare const useToast: import("pinia").StoreDefinition<"toast", Pick<{
     }[], WithId<ToastData>[] | {
         id: string;
         data: {
-            type?: ToastType | undefined;
+            type?: import("../../lib/types.js").ToastType | undefined;
             message: string;
             dismissible?: boolean | undefined;
             duration?: number | undefined;
@@ -46,7 +35,7 @@ export declare const useToast: import("pinia").StoreDefinition<"toast", Pick<{
     toasts: import("vue").Ref<{
         id: string;
         data: {
-            type?: ToastType | undefined;
+            type?: import("../../lib/types.js").ToastType | undefined;
             message: string;
             dismissible?: boolean | undefined;
             duration?: number | undefined;
@@ -59,7 +48,7 @@ export declare const useToast: import("pinia").StoreDefinition<"toast", Pick<{
     }[], WithId<ToastData>[] | {
         id: string;
         data: {
-            type?: ToastType | undefined;
+            type?: import("../../lib/types.js").ToastType | undefined;
             message: string;
             dismissible?: boolean | undefined;
             duration?: number | undefined;
@@ -76,7 +65,7 @@ export declare const useToast: import("pinia").StoreDefinition<"toast", Pick<{
     toasts: import("vue").Ref<{
         id: string;
         data: {
-            type?: ToastType | undefined;
+            type?: import("../../lib/types.js").ToastType | undefined;
             message: string;
             dismissible?: boolean | undefined;
             duration?: number | undefined;
@@ -89,7 +78,7 @@ export declare const useToast: import("pinia").StoreDefinition<"toast", Pick<{
     }[], WithId<ToastData>[] | {
         id: string;
         data: {
-            type?: ToastType | undefined;
+            type?: import("../../lib/types.js").ToastType | undefined;
             message: string;
             dismissible?: boolean | undefined;
             duration?: number | undefined;

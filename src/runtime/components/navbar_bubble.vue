@@ -17,15 +17,11 @@
 import { useRoute } from "#app";
 import l from "lodash";
 import { ref, watch } from "vue";
-export interface Section {
-    title: string;
-    icon?: string | undefined;
-    path: string;
-    color?: string;
-}
+import type { NavbarItem } from "../lib/types";
+
 const selectedIndex = ref(0);
 const hoveredIndex = ref(0);
-const props = defineProps<{ sections: Section[] }>();
+const props = defineProps<{ sections: NavbarItem[] }>();
 
 const tabsWrapperEl = ref<HTMLElement | undefined>();
 const route = useRoute();

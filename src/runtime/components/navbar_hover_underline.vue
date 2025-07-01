@@ -39,14 +39,11 @@ import l from "lodash";
 import { motion } from "motion-v";
 import { ref, watch } from "vue";
 import { shortUid } from "../lib/string";
-export interface Section {
-    title: string;
-    icon?: string | undefined;
-    path: string;
-}
+import type { NavbarItem } from "../lib/types";
+
 const selectedIndex = ref(0);
 const hoveredIndex = ref(0);
-const props = defineProps<{ sections: Section[] }>();
+const props = defineProps<{ sections: NavbarItem[] }>();
 const id = shortUid(props.sections);
 const hoverId = shortUid(props.sections + "hover");
 

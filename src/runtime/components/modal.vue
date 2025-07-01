@@ -76,16 +76,8 @@ import { breakpointsTailwind, useBreakpoints, useMounted, useMutationObserver } 
 import { computed, nextTick, ref, useSlots } from "vue";
 import { useRefreshableKey } from "../composables/refreshable_key";
 import { useModalController } from "../composables/stores/modal_controller";
-import type { ToastData } from "../composables/stores/toast";
+import type { ModalElement, ToastData } from "../lib/types";
 
-export interface ModalElement {
-    el: HTMLDialogElement | undefined;
-    addToast: (data: ToastData) => void;
-    dismissToast: () => void;
-    getArg: () => any | undefined;
-    open: (arg?: any | undefined) => void;
-    close: () => void;
-}
 const disableAnimation = ref(true);
 const mounted = useMounted();
 const bp = useBreakpoints(breakpointsTailwind);

@@ -3,6 +3,9 @@ export default defineNuxtConfig({
     modules: ["../src/module", "@nuxtjs/tailwindcss"],
     sleek: {},
     css: ["~/assets/css/tailwind.css"],
+    dayjs: {
+        plugins: ["duration", "quarterOfYear"],
+    },
 
     devtools: { enabled: true },
 });

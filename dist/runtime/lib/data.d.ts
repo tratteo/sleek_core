@@ -1,4 +1,3 @@
-import { type Duration } from "dayjs/plugin/duration";
 export interface Aggregation<K, V> {
     key: K;
     elements: V[];
@@ -14,7 +13,7 @@ export declare function aggregate<T extends {
     key: (e: T) => Date;
     interval?: DateInterval;
     stride?: {
-        duration: Duration;
+        duration: plugin.Duration;
         fixed?: boolean;
     };
     includeEmptyIntervals?: boolean;

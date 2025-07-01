@@ -40,6 +40,9 @@ export default defineNuxtModule<ModuleOptions>({
 
         // INSTALL MODULES
         await installModule("motion-v/nuxt");
+        await installModule("dayjs-nuxt", {
+            plugins: ["quarterOfYear", "dayOfYear", "duration", "utc", "relativeTime"],
+        });
         await installModule("@vueuse/nuxt");
         await installModule("@pinia/nuxt");
         await installModule("@nuxt/fonts", {

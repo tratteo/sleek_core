@@ -1,6 +1,6 @@
-import dayjs from "dayjs";
 import l from "lodash";
 function adaptiveStride(timespan) {
+  const dayjs = useDayjs();
   const days = dayjs.duration(dayjs(timespan.to).diff(timespan.from), "millisecond").asDays();
   if (days <= 1) {
     return dayjs.duration(1, "hour");
@@ -17,6 +17,7 @@ function adaptiveStride(timespan) {
   return dayjs.duration(3, "month");
 }
 function getPeriodBound(date, dur, bound) {
+  const dayjs = useDayjs();
   date = dayjs(date);
   if (dur.asYears() >= 1) {
     return bound === "start" ? date.startOf("year") : date.endOf("year");
@@ -84,11 +85,8 @@ export function aggregate({
   }
   for (const e of elements) {
     const moment = key(e).getTime();
-    if (moment > interval.to.getTime() || moment < interval.from.getTime())
-      continue;
-    const m = aggregation.find(
-      (i) => moment >= i.key.from.getTime() && moment <= i.key.to.getTime()
-    );
+    if (moment > interval.to.getTime() || moment < interval.from.getTime()) continue;
+    const m = aggregation.find((i) => moment >= i.key.from.getTime() && moment <= i.key.to.getTime());
     if (!m) continue;
     m.elements.push(e);
   }

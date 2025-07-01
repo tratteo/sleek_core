@@ -1,7 +1,6 @@
 import { defineNuxtPlugin } from "#app";
 import { Chart, registerables } from "chart.js";
 import annotationPlugin from "chartjs-plugin-annotation";
-import { logInfo } from "../lib/logger";
 
 export default defineNuxtPlugin({
     setup(nuxtApp) {

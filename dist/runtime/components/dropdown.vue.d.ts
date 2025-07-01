@@ -1,7 +1,4 @@
 import { type IFuseOptions } from "fuse.js";
-export interface DropdownSearchOptions {
-    keys: string[];
-}
 declare const _default: <T extends any>(__VLS_props: NonNullable<Awaited<typeof __VLS_setup>>["props"], __VLS_ctx?: __VLS_PrettifyLocal<Pick<NonNullable<Awaited<typeof __VLS_setup>>, "attrs" | "emit" | "slots">>, __VLS_expose?: NonNullable<Awaited<typeof __VLS_setup>>["expose"], __VLS_setup?: Promise<{
     props: __VLS_PrettifyLocal<Pick<Partial<{}> & Omit<{
         readonly onChanged?: ((value: any, index: number) => any) | undefined;

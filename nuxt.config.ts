@@ -4,6 +4,8 @@ export default defineNuxtConfig({
         dirs: ["composables/**/*"],
         global: true,
     },
-
-    modules: ["@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxt/scripts", "@nuxtjs/tailwindcss", "@pinia/nuxt", "@vueuse/nuxt", "motion-v/nuxt"],
+    dayjs: {
+        plugins: ["quarterOfYear", "dayOfYear", "duration", "utc", "relativeTime"],
+    },
+    modules: ["@nuxt/fonts", "@nuxt/icon", "@nuxtjs/tailwindcss", "@pinia/nuxt", "@vueuse/nuxt", "motion-v/nuxt", "dayjs-nuxt"],
 });

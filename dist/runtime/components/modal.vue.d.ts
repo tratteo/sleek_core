@@ -1,12 +1,4 @@
-import type { ToastData } from "../composables/stores/toast.js";
-export interface ModalElement {
-    el: HTMLDialogElement | undefined;
-    addToast: (data: ToastData) => void;
-    dismissToast: () => void;
-    getArg: () => any | undefined;
-    open: (arg?: any | undefined) => void;
-    close: () => void;
-}
+import type { ToastData } from "../lib/types.js";
 type __VLS_Props = {
     id?: string;
     closeOnClickOutside?: boolean;
@@ -65,9 +57,9 @@ declare const __VLS_component: import("vue").DefineComponent<__VLS_Props, {
     onOpen?: ((arg: any) => any) | undefined;
 }>, {
     actions: boolean;
+    maintainHeight: boolean;
     closeOnClickOutside: boolean;
     closeIcon: boolean;
-    maintainHeight: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 declare const _default: __VLS_WithSlots<typeof __VLS_component, __VLS_Slots>;
 export default _default;

@@ -1,12 +1,3 @@
-export interface CarouselSection {
-    title: string;
-    icon: string;
-    color: string;
-    duration: number;
-    type: "video" | "image" | "component";
-    description: string;
-    asset: string;
-}
 type __VLS_Props = {
     sections: CarouselSection[];
 };
