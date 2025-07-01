@@ -9,7 +9,7 @@
 
 <script setup>
 import { computed, useMounted } from "#imports";
-import colors from "tailwindcss/colors";
+import * as colors from "tailwindcss/colors";
 import { daisyUiColorHex, daisyUiColorRgba, hexToRgba } from "../lib/colors";
 const props = defineProps({
   type: { type: String, required: false, default: "info" },

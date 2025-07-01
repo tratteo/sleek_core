@@ -9,7 +9,7 @@
 
 <script lang="ts" setup>
 import { computed, useMounted } from "#imports";
-import colors from "tailwindcss/colors";
+import * as colors from "tailwindcss/colors";
 import { daisyUiColorHex, daisyUiColorRgba, hexToRgba } from "../lib/colors";
 export type AlertType = "warning" | "info" | "error" | "success" | "tip";
 
