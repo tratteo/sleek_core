@@ -1,6 +1,7 @@
 <template>
     <div class="relative">
         <AsyncOpButton></AsyncOpButton>
+        <NuxtPage></NuxtPage>
     </div>
 </template>
 
