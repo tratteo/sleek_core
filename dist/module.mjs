@@ -1,4 +1,5 @@
 import { defineNuxtModule, createResolver, addPlugin, addImportsDir, installModule, addComponentsDir } from '@nuxt/kit';
+import daisyui from 'daisyui';
 import { glob } from 'glob';
 import { logSuccess } from '../dist/runtime/lib/logger.js';
 
@@ -54,7 +55,7 @@ const module = defineNuxtModule({
     });
     _nuxt.hook("tailwindcss:config", (tailwindConfig) => {
       tailwindConfig.plugins = tailwindConfig.plugins || [];
-      tailwindConfig.plugins.push(require("daisyui"));
+      tailwindConfig.plugins.push(daisyui);
       tailwindConfig.content = tailwindConfig.content || [];
       if (Array.isArray(tailwindConfig.content)) {
         tailwindConfig.content.push(resolver.resolve("./runtime/components/**/*.{vue,js,ts}"));

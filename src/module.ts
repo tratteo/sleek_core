@@ -1,7 +1,8 @@
 import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule, installModule } from "@nuxt/kit";
+import daisyui from "daisyui";
 import { glob } from "glob";
+import { createRequire } from "module";
 import { logSuccess } from "./runtime/lib/logger";
-
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
 
@@ -66,7 +67,7 @@ export default defineNuxtModule<ModuleOptions>({
 
         _nuxt.hook("tailwindcss:config", (tailwindConfig) => {
             tailwindConfig.plugins = tailwindConfig.plugins || [];
-            tailwindConfig.plugins.push(require("daisyui"));
+            tailwindConfig.plugins.push(daisyui);
             tailwindConfig.content = tailwindConfig.content || [];
             if (Array.isArray(tailwindConfig.content)) {
                 (tailwindConfig.content as any[]).push(resolver.resolve("./runtime/components/**/*.{vue,js,ts}"));
