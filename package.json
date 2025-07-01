@@ -1,6 +1,6 @@
 {
   "name": "@sleek/core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Build sleek and sick fullstack apps with Nuxt",
   "repository": {
     "type": "git",

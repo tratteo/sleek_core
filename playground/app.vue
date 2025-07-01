@@ -1,7 +1,6 @@
 <template>
     <div class="relative">
-        <ToastOverlay></ToastOverlay>
-        <NuxtPage></NuxtPage>
+        <AsyncOpButton></AsyncOpButton>
     </div>
 </template>
 
