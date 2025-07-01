@@ -1,6 +1,3 @@
-import dayjs from "dayjs";
-import type { Duration } from "dayjs/plugin/duration";
-
 export function getDomainName(url: string): string | null {
     try {
         const urlObj = new URL(url);
@@ -81,14 +78,6 @@ export function toShortString(v: number | undefined): string | undefined {
     return str;
 }
 
-export function minutesToReadableTimespan(mins: number): string {
-    const dur = dayjs.duration(mins, "minute");
-    const days = Math.floor(mins / 1440);
-    const hours = Math.floor((mins % 1440) / 60);
-    const rest = mins % 60;
-    return `${hours.toFixed(0)}h ${rest.toFixed(0)} min`;
-}
-
 export function toUriSafeString(input: string | undefined | null): string | undefined {
     if (isNullOrEmpty(input)) return undefined;
     return (
@@ -114,10 +103,6 @@ export function countryCodeToFlagEmoji(countryCode: string | undefined | null): 
         .split("")
         .map((char) => 127397 + char.charCodeAt(0));
     return String.fromCodePoint(...codePoints);
-}
-
-export function durationAsWorkingHours(d: Duration) {
-    return `${d.asHours().toFixed(0)}:${d.format("mm")}`;
 }
 
 export function shortUid(seed: any, length: number = 6): string {

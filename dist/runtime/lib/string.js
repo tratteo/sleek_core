@@ -1,4 +1,3 @@
-import dayjs from "dayjs";
 export function getDomainName(url) {
   try {
     const urlObj = new URL(url);
@@ -70,13 +69,6 @@ export function toShortString(v) {
   }
   return str;
 }
-export function minutesToReadableTimespan(mins) {
-  const dur = dayjs.duration(mins, "minute");
-  const days = Math.floor(mins / 1440);
-  const hours = Math.floor(mins % 1440 / 60);
-  const rest = mins % 60;
-  return `${hours.toFixed(0)}h ${rest.toFixed(0)} min`;
-}
 export function toUriSafeString(input) {
   if (isNullOrEmpty(input)) return void 0;
   return input.toLocaleLowerCase().replace(/\s+/g, "-").split("").map((char) => encodeURIComponent(char)).filter(
@@ -90,9 +82,6 @@ export function countryCodeToFlagEmoji(countryCode) {
   if (isNullOrEmpty(countryCode)) return "";
   const codePoints = countryCode.toUpperCase().split("").map((char) => 127397 + char.charCodeAt(0));
   return String.fromCodePoint(...codePoints);
-}
-export function durationAsWorkingHours(d) {
-  return `${d.asHours().toFixed(0)}:${d.format("mm")}`;
 }
 export function shortUid(seed, length = 6) {
   const inputStr = typeof seed === "object" ? JSON.stringify(seed) : String(seed);

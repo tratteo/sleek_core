@@ -1,8 +1,6 @@
 import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule, installModule, useLogger } from "@nuxt/kit";
-import daisyui from "daisyui";
 import { glob } from "glob";
-import { createRequire } from "module";
-import { logSuccess } from "./runtime/lib/logger";
+import pkg from "../package.json";
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
 
@@ -33,7 +31,6 @@ export default defineNuxtModule<ModuleOptions>({
         _nuxt.options.css.push(...cssFiles);
         //_nuxt.options.css.push(resolver.resolve("./runtime/assets/css/*.css"));
 
-        addPlugin({ src: resolver.resolve("./runtime/plugins/dayjs") });
         addPlugin({
             src: resolver.resolve("./runtime/plugins/chart.client"),
             mode: "client",
@@ -80,6 +77,6 @@ export default defineNuxtModule<ModuleOptions>({
             pathPrefix: false,
             global: true,
         });
-        logger.info("@sleek/core module built");
+        logger.info("@sleek/core module built", `v ${pkg.version}`);
     },
 });

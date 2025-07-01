@@ -1,6 +1,10 @@
 import { defineNuxtModule, useLogger, createResolver, addPlugin, addImportsDir, installModule, addComponentsDir } from '@nuxt/kit';
 import { glob } from 'glob';
 
+const version = "1.0.1";
+const pkg = {
+	version: version};
+
 const module = defineNuxtModule({
   meta: {
     name: "@sleek/core",
@@ -22,7 +26,6 @@ const module = defineNuxtModule({
     });
     const cssFiles = await glob(resolver.resolve("./runtime/assets/css/*.css"));
     _nuxt.options.css.push(...cssFiles);
-    addPlugin({ src: resolver.resolve("./runtime/plugins/dayjs") });
     addPlugin({
       src: resolver.resolve("./runtime/plugins/chart.client"),
       mode: "client"
@@ -57,7 +60,7 @@ const module = defineNuxtModule({
       pathPrefix: false,
       global: true
     });
-    logger.info("@sleek/core module built");
+    logger.info("@sleek/core module built", `v ${pkg.version}`);
   }
 });
 
