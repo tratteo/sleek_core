@@ -1,7 +1,5 @@
-import { defineNuxtModule, createResolver, addPlugin, addImportsDir, installModule, addComponentsDir } from '@nuxt/kit';
-import daisyui from 'daisyui';
+import { defineNuxtModule, useLogger, createResolver, addPlugin, addImportsDir, installModule, addComponentsDir } from '@nuxt/kit';
 import { glob } from 'glob';
-import { logSuccess } from '../dist/runtime/lib/logger.js';
 
 const module = defineNuxtModule({
   meta: {
@@ -13,6 +11,7 @@ const module = defineNuxtModule({
   },
   defaults: {},
   async setup(_options, _nuxt) {
+    const logger = useLogger("@sleek/core");
     const resolver = createResolver(import.meta.url);
     const runtimeDir = resolver.resolve("./runtime/lib");
     _nuxt.options.alias["@sleek"] = runtimeDir;
@@ -39,23 +38,12 @@ const module = defineNuxtModule({
     });
     await installModule("motion-v/nuxt");
     await installModule("@nuxtjs/tailwindcss", { config: "../tailwind.config.ts" });
-    await installModule("@nuxt/content", {
-      build: {
-        markdown: {
-          toc: {
-            depth: 3
-          }
-        }
-      }
-    });
     await installModule("@nuxt/icon", {
       size: "24px",
       fetchTimeout: 4e3,
       clientBundle: { scan: true }
     });
     _nuxt.hook("tailwindcss:config", (tailwindConfig) => {
-      tailwindConfig.plugins = tailwindConfig.plugins || [];
-      tailwindConfig.plugins.push(daisyui);
       tailwindConfig.content = tailwindConfig.content || [];
       if (Array.isArray(tailwindConfig.content)) {
         tailwindConfig.content.push(resolver.resolve("./runtime/components/**/*.{vue,js,ts}"));
@@ -63,13 +51,13 @@ const module = defineNuxtModule({
         tailwindConfig.content.files ??= [];
         tailwindConfig.content.files.push(resolver.resolve("./runtime/components/**/*.{vue,js,ts}"));
       }
-      logSuccess("components style injected");
     });
     addComponentsDir({
       path: resolver.resolve("./runtime/components"),
       pathPrefix: false,
       global: true
     });
+    logger.info("@sleek/core module built");
   }
 });
 

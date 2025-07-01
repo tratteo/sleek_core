@@ -1,4 +1,4 @@
-import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule, installModule } from "@nuxt/kit";
+import { addComponentsDir, addImportsDir, addPlugin, createResolver, defineNuxtModule, installModule, useLogger } from "@nuxt/kit";
 import daisyui from "daisyui";
 import { glob } from "glob";
 import { createRequire } from "module";
@@ -15,7 +15,9 @@ export default defineNuxtModule<ModuleOptions>({
         },
     },
     defaults: {},
+
     async setup(_options, _nuxt) {
+        const logger = useLogger("@sleek/core");
         const resolver = createResolver(import.meta.url);
 
         // inject lib utils
@@ -50,15 +52,6 @@ export default defineNuxtModule<ModuleOptions>({
         });
         await installModule("motion-v/nuxt");
         await installModule("@nuxtjs/tailwindcss", { config: "../tailwind.config.ts" });
-        await installModule("@nuxt/content", {
-            build: {
-                markdown: {
-                    toc: {
-                        depth: 3,
-                    },
-                },
-            },
-        });
         await installModule("@nuxt/icon", {
             size: "24px",
             fetchTimeout: 4000,
@@ -66,8 +59,8 @@ export default defineNuxtModule<ModuleOptions>({
         });
 
         _nuxt.hook("tailwindcss:config", (tailwindConfig) => {
-            tailwindConfig.plugins = tailwindConfig.plugins || [];
-            tailwindConfig.plugins.push(daisyui);
+            // tailwindConfig.plugins = tailwindConfig.plugins || [];
+            // tailwindConfig.plugins.push(daisyui);
             tailwindConfig.content = tailwindConfig.content || [];
             if (Array.isArray(tailwindConfig.content)) {
                 (tailwindConfig.content as any[]).push(resolver.resolve("./runtime/components/**/*.{vue,js,ts}"));
@@ -75,7 +68,6 @@ export default defineNuxtModule<ModuleOptions>({
                 (tailwindConfig.content as any).files ??= [];
                 (tailwindConfig.content as any).files.push(resolver.resolve("./runtime/components/**/*.{vue,js,ts}"));
             }
-            logSuccess("components style injected");
         });
 
         // addComponentsDir({
@@ -88,5 +80,6 @@ export default defineNuxtModule<ModuleOptions>({
             pathPrefix: false,
             global: true,
         });
+        logger.info("@sleek/core module built");
     },
 });

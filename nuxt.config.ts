@@ -5,5 +5,5 @@ export default defineNuxtConfig({
         global: true,
     },
 
-    modules: ["@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxt/scripts", "@nuxt/content", "@nuxtjs/tailwindcss", "@pinia/nuxt", "@vueuse/nuxt", "motion-v/nuxt"],
+    modules: ["@nuxt/fonts", "@nuxt/icon", "@nuxt/image", "@nuxt/scripts", "@nuxtjs/tailwindcss", "@pinia/nuxt", "@vueuse/nuxt", "motion-v/nuxt"],
 });

@@ -14,8 +14,6 @@ export default defineNuxtPlugin({
         dayjs.extend(relativeTime);
         dayjs.extend(timezone);
         dayjs.extend(utc);
-
-        logInfo(`dayjs plugin initialized ${import.meta.server ? "(client)" : "(server)"}`);
     },
     enforce: "pre",
 });

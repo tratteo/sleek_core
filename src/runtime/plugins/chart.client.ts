@@ -6,6 +6,5 @@ import { logInfo } from "../lib/logger";
 export default defineNuxtPlugin({
     setup(nuxtApp) {
         Chart.register(...registerables, annotationPlugin);
-        logInfo("chartjs plugin initialized");
     },
 });
