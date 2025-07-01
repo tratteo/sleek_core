@@ -23,9 +23,9 @@ const module = defineNuxtModule({
     });
     const cssFiles = await glob(resolver.resolve("./runtime/assets/css/*.css"));
     _nuxt.options.css.push(...cssFiles);
-    addPlugin({ src: resolver.resolve("./runtime/plugins/dayjs.ts") });
+    addPlugin({ src: resolver.resolve("./runtime/plugins/dayjs") });
     addPlugin({
-      src: resolver.resolve("./runtime/plugins/chart.client.ts"),
+      src: resolver.resolve("./runtime/plugins/chart.client"),
       mode: "client"
     });
     addImportsDir([resolver.resolve("./runtime/composables"), resolver.resolve("./runtime/composables/stores")]);

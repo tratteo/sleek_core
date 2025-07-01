@@ -31,9 +31,9 @@ export default defineNuxtModule<ModuleOptions>({
         _nuxt.options.css.push(...cssFiles);
         //_nuxt.options.css.push(resolver.resolve("./runtime/assets/css/*.css"));
 
-        addPlugin({ src: resolver.resolve("./runtime/plugins/dayjs.ts") });
+        addPlugin({ src: resolver.resolve("./runtime/plugins/dayjs") });
         addPlugin({
-            src: resolver.resolve("./runtime/plugins/chart.client.ts"),
+            src: resolver.resolve("./runtime/plugins/chart.client"),
             mode: "client",
         });
 
